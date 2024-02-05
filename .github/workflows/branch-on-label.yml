@@ -35,6 +35,7 @@ jobs:
 
           if git branch --list | grep -q $branch_name; then
             echo "Branch $branch_name already exists"
+            exit 1
           else
             git checkout -b $branch_name
             git push origin $branch_name
