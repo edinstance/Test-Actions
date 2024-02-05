@@ -1,1 +1,10 @@
+# This workflow will create a branch for an issue if the new-branch label is present
 
+name: Create Branch
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow when a new issue is opened
+  issues: 
+    types: 
+      - opened
