@@ -8,8 +8,7 @@ on:
   issues: 
     types: 
       - opened
-      - labeled
-
+      
 jobs:
   # This workflow contains a single job to create the branch 
   create-branch:
@@ -31,7 +30,7 @@ jobs:
         # The branch is then pushed
         run: |
           branch_name="${{ github.event.issue.number }}-${{ github.event.issue.title }}" 
-          branch_name=$(echo "${branch_name}" | tr '[:upper:]' '[:lower:]' | tr -cd '[:alnum:]-' | cut -c 1-30)
+          branch_name=$(echo "${branch_name}" | tr '[:upper:]' '[:lower:]' |  tr ' ' '-' | tr -cd '[:alnum:]-' | cut -c 1-30)
 
           if git branch --list | grep -q $branch_name; then
             echo "Branch $branch_name already exists"
