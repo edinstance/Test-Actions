@@ -18,14 +18,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       # This fetches the repository's code and places it in the working directory of the workflow runner.
-      - uses: ./
-        env: 
-           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Will be created by github
         
       - name: Create Branch
         # This step creates the branch
         # This gives the runner acess to a token so it has permission to read and write
-        
+        env: 
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Will be created by github
          
         # The branch is only created if the label is present 
         if: contains(github.event.issue.labels.*.name, 'new-branch')
@@ -34,7 +32,6 @@ jobs:
         # The env variable is then used to create a new branch
         # The branch is then pushed
         run: |
-          echo "$GH_TOKEN"
           branch_name="${{ github.event.issue.number }}-${{ github.event.issue.title }}" 
           branch_name=$(echo "${branch_name}" | tr '[:upper:]' '[:lower:]' | tr -cd '[:alnum:]-' | cut -c 1-30)
           git checkout -b $branch_name
