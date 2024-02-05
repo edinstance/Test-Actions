@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       # This fetches the repository's code and places it in the working directory of the workflow runner.
         
       - name: Create Branch
