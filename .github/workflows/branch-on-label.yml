@@ -14,3 +14,7 @@ jobs:
   create-branch:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      # This fetches the repository's code and places it in the working directory of the workflow runner.
