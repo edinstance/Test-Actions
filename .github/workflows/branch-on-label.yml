@@ -21,10 +21,6 @@ jobs:
         
       - name: Create Branch
         # This step creates the branch
-        # This gives the runner acess to a token so it has permission to read and write
-        env: 
-          GITHUB_TOKEN: $GITHUB_TOKEN
-        # Will be created by github
          
         # The branch is only created if the label is present 
         if: contains(github.event.issue.labels.*.name, 'new-branch')
