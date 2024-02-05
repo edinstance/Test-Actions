@@ -1,0 +1,39 @@
+# This workflow will create a branch for an issue if the new-branch label is present
+
+name: Create Branch
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow when a new issue is opened
+  issues: 
+    types: 
+      - opened
+
+jobs:
+  # This workflow contains a single job to create the branch 
+  create-branch:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      # This fetches the repository's code and places it in the working directory of the workflow runner.
+      
+      - name: Create Branch
+        # This step creates the branch
+        # This gives the runner acess to a token so it has permission to read and write
+        env: 
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Will be created by github
+         
+        # The branch is only created if the label is present 
+        if: contains(github.event.issue.labels.*.name, 'new-branch')
+        # It names the branch after the issue number and the title 
+        # It then formats the branch name and makes it an environment variable 
+        # The env variable is then used to create a new branch
+        # The branch is then pushed
+        run: |
+          echo "$GH_TOKEN"
+          branch_name="${{ github.event.issue.number }}-${{ github.event.issue.title }}" 
+          branch_name=$(echo "${branch_name}" | tr '[:upper:]' '[:lower:]' | tr -cd '[:alnum:]-' | cut -c 1-30)
+          git checkout -b $branch_name
+          git push origin $branch_name
