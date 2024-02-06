@@ -39,6 +39,7 @@ jobs:
           else
             git checkout -b $branch_name
             git push origin $branch_name
+            echo "BRANCH_NAME=$branch_name" >> $GITHUB_ENV
           fi
 
 
@@ -59,8 +60,8 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body:  "Thanks for creating an issue. A branch has been created for this issue, you can find it here: ${{ github.server_url }}/${{ github.repository }}/tree/${{ env.branch_name }}"
+              body:  "Thanks for creating an issue. A branch has been created for this issue, you can find it here: ${{ github.server_url }}/${{ github.repository }}/tree/${{ env.BRANCH_NAME }}"
             });
-            echo "${{ env.branch_name }}"
+            echo "${{ env.BRANCH_NAME }}"
         
             
