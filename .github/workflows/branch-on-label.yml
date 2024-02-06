@@ -45,7 +45,7 @@ jobs:
         # This step adds a comment to the issue 
       - name: Add comment to issue
         id: comment
- 
+
         if: steps.create.outcome == 'success'
         # If the step creating a branch was a success then
 
@@ -57,6 +57,6 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body:  "Thanks for creating an issue. A branch has been created for this issue.
-        
+              body: 'Thanks for creating an issue. A branch has been created for this issue."
+            })
         
