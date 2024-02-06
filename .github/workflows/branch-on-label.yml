@@ -20,6 +20,7 @@ jobs:
       # This fetches the repository's code and places it in the working directory of the workflow runner.
         
       - name: Create Branch
+        id: create
         # This step creates the branch
          
         # The branch is only created if the label is present 
@@ -39,3 +40,23 @@ jobs:
             git checkout -b $branch_name
             git push origin $branch_name
           fi
+
+      - name: Add comment to issue
+        # This step adds a comment to the issue 
+        id: comment
+
+        if: steps.create.outcome == 'success'
+        # If the step creating a branch was a success then
+
+        uses: actions/github-script@v7
+        # use this script to create a comment with the details below.
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Thanks for creating an issue, a branch has been created for this issue, you can find it here: '
+            })
+        
+        
