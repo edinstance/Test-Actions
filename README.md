@@ -1,6 +1,11 @@
 # Test-Actions
-I'm using this repo to test GitHub actions that im creating and going to use. 
-The actions I have created so far are:
-  An action that creates a branch for a new issue when a certain label is added. It also adds a comment to the issue once the branch is made.
 
+This repository serves as a testing ground for GitHub actions that I am developing and planning to use in my projects.
 
+## Actions Developed So Far:
+
+1. **Create Branch for New Issue:**
+   - This action automatically creates a branch for a new issue when a certain label is added to it.
+   - Once the branch is created, it adds a comment to the issue with a link to the newly created branch.
+
+Feel free to explore the actions further and contribute to their development!
