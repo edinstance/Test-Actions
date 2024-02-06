@@ -57,7 +57,6 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body:  "Thanks for creating an issue. A branch has been created for this issue, you can find it here:
-              ${{ github.server_url }}/${{ github.repository }}/tree/${{ env.branch_name }}"
+              body:  "Thanks for creating an issue. A branch has been created for this issue.
         
         
