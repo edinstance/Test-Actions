@@ -17,6 +17,7 @@ jobs:
         uses: actions/setup-node@v4
         with: 
           node-version: 20.x
+      #  This step sets the worker up so that it can use node
           
       - name: Install dependencies
         run: |
@@ -27,5 +28,12 @@ jobs:
           eslint-plugin-storybook \
           prettier \
           prettier-plugin-tailwindcss
-          
+      # This step installs all of the prettier and lint dependencies needed.
+
+      - name: Run lint and prettier
+        run: 
+          npm run lint
+      #  This step runs the npm lint command which should be next lint && prettier --write .
+
+      
       
