@@ -18,4 +18,14 @@ jobs:
         with: 
           node-version: 20.x
           
-  
+      - name: Install dependencies
+        run: |
+          npm install --silent \
+          eslint \
+          eslint-config-next \
+          eslint-config-prettier \
+          eslint-plugin-storybook \
+          prettier \
+          prettier-plugin-tailwindcss
+          
+      
