@@ -2,6 +2,7 @@
 name: lint-and-prettier  
 on:
   pull_request:
+  workflow_dispatch:
 
 jobs:
   lint:
