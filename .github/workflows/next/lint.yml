@@ -34,7 +34,7 @@ jobs:
       - name: Run lint and prettier
         run: 
           npm run lint
-      #  This step runs the npm lint command which should be next lint && prettier --write .
+      #  This step runs the npm lint command which should be next lint && prettier --check .
 
       
       
