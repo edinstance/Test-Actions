@@ -50,4 +50,18 @@ This repository serves as a testing ground for GitHub actions that I am developi
    - Then it installs the correct dependencies and runs tests using maven
    - Finally it saves the test results as an artifact 
    
+8. **Terraform Lint**
+   - This action runs on pull request
+   - It sets the working directory to ./Terraform
+   - Then it sets up tflint by using the [terraform-linters](https://github.com/terraform-linters) setup action
+   - Once tflint is setup, it is initialised in the runner
+   - Finaly the linter is ran and it will cause an error if there are any violations
+
+8. **Terraform Security Scan**
+   - This action runs on pull request
+   - It sets the working directory to ./Terraform
+   - Then the trivy action is used to run the security scan
+   - It is set up to run in the config mode which scans IaC (Infrastructure as code) for vulnerabilites
+   - It only throws an error if HIGH and CRITICAL errors are found
+
 Feel free to explore the actions further and contribute to their development!
