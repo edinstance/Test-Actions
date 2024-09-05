@@ -50,4 +50,11 @@ This repository serves as a testing ground for GitHub actions that I am developi
    - Then it installs the correct dependencies and runs tests using maven
    - Finally it saves the test results as an artifact 
    
+8. **Terraform Lint**
+   - This action runs on pull request
+   - It sets the working directory to ./Terraform
+   - Then it sets up tflint by using the [terraform-linters](https://github.com/terraform-linters) setup action
+   - Once tflint is setup, it is initialised in the runner
+   - Finaly the linter is ran and it will cause an error if there are any violations
+
 Feel free to explore the actions further and contribute to their development!
