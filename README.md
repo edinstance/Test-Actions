@@ -28,4 +28,11 @@ This repository serves as a testing ground for GitHub actions that I am developi
    - If liqiubase runs correctly then the supabase database is updated
    - Some GitHub secrets need to be configured for this but this is explained in the releveant [README.md](.github/workflows/postgres/README.md)
 
+5. **Run cypress tests against a next.js project**
+   - This action runs on pull request and workflow dispatch
+   - This action sets up node
+   - It then builds a docker image for the next.js project
+   - Then it runs all of the docker images in detached mode
+   - Finally it uses the Cypress action to run the tests
+   
 Feel free to explore the actions further and contribute to their development!
