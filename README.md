@@ -35,4 +35,10 @@ This repository serves as a testing ground for GitHub actions that I am developi
    - Then it runs all of the docker images in detached mode
    - Finally it uses the Cypress action to run the tests
    
+6. **Java Unit Tests**
+   - This action runs on pull request and workflow dispatch
+   - This action sets up JDK
+   - Then runs the tests using maven
+   - Finally it saves the tests results as an artifact
+
 Feel free to explore the actions further and contribute to their development!
